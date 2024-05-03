@@ -84,7 +84,7 @@ def get_args():
     group = parser.add_argument_group(title='input data')
     group.add_argument('--input', type=str, required=True,
                        help='Path to input JSON')
-    group.add_argument('--json_keys', nargs='+', default=['text'],
+    group.add_argument('--json_keys', nargs='+', default=['text', 'target', 'id'],
                        help='space separate listed of keys to extract from json')
     group.add_argument('--split_sentences', action='store_true',
                        help='Split documents into sentences.')
@@ -192,8 +192,9 @@ def main():
                   f"({i/elapsed} docs/s, {mbs} MB/s).",
                   file=sys.stderr)
     print("Done! Now finalizing.")
-
+   
     for key in args.json_keys:
+        print(f"Writing {key} to {output_bin_files[key]}")
         builders[key].finalize(output_idx_files[key])
 
 
