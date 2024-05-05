@@ -602,6 +602,7 @@ def main():
             rope_theta=rope_theta,
         )
     elif args.model == "mistral":
+        vocab_size = None
         write_mistral_model(
             model_path=args.output_dir,
             input_base_path=args.input_dir,

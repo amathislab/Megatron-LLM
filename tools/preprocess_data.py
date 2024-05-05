@@ -84,7 +84,7 @@ def get_args():
     group = parser.add_argument_group(title='input data')
     group.add_argument('--input', type=str, required=True,
                        help='Path to input JSON')
-    group.add_argument('--json_keys', nargs='+', default=['text', 'target', 'id'],
+    group.add_argument('--json_keys', nargs='+', default=['text', 'id'],
                        help='space separate listed of keys to extract from json')
     group.add_argument('--split_sentences', action='store_true',
                        help='Split documents into sentences.')
